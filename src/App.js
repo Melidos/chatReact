@@ -26,8 +26,8 @@ function App() {
   if (userLoading) {
     console.log("User is loading");
     return (
-      <div className='App'>
-        <header className='App-header'></header>
+      <div>
+        <header></header>
         User information is being loaded
       </div>
     );
@@ -35,8 +35,8 @@ function App() {
   console.log("User is loaded");
   console.log(user);
   return (
-    <div className='App'>
-      <header className='App-header'></header>
+    <div>
+      <header></header>
       <section>
         {user ? (
           <Chat user={user} auth={auth}></Chat>
