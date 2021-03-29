@@ -8,6 +8,8 @@ import "firebase/auth";
 
 import { useAuthState } from "react-firebase-hooks/auth";
 
+import { Grid, CircularProgress } from "@material-ui/core";
+
 firebase.initializeApp({
   apiKey: "AIzaSyDIvVT-JoPoBl4X7yE8FA4SwfJrgdj_6ww",
   authDomain: "reactchat-644ad.firebaseapp.com",
@@ -26,17 +28,21 @@ function App() {
   if (userLoading) {
     console.log("User is loading");
     return (
-      <div>
-        <header></header>
-        User information is being loaded
-      </div>
+      <Grid
+        container
+        direction='column'
+        alignItems='center'
+        justify='center'
+        style={{ minHeight: "100vh", fontSize: "1.5em", textAlign: "center" }}
+      >
+        User informations are being loaded
+        <CircularProgress color='white' size='10rem' />
+      </Grid>
     );
   }
   console.log("User is loaded");
-  console.log(user);
   return (
-    <div>
-      <header></header>
+    <Grid container direction='column' justify='center' alignItems='center'>
       <section>
         {user ? (
           <Chat user={user} auth={auth}></Chat>
@@ -44,7 +50,7 @@ function App() {
           <SignIn auth={auth}></SignIn>
         )}
       </section>
-    </div>
+    </Grid>
   );
 }
 
