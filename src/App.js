@@ -8,7 +8,16 @@ import "firebase/auth";
 
 import { useAuthState } from "react-firebase-hooks/auth";
 
-import { Grid, CircularProgress } from "@material-ui/core";
+import {
+  Grid,
+  CircularProgress,
+  AppBar,
+  Toolbar,
+  Typography,
+  Button,
+  Avatar,
+} from "@material-ui/core";
+import React from "react";
 
 firebase.initializeApp({
   apiKey: "AIzaSyDIvVT-JoPoBl4X7yE8FA4SwfJrgdj_6ww",
@@ -42,15 +51,51 @@ function App() {
   }
   console.log("User is loaded");
   return (
-    <Grid container direction='column' justify='center' alignItems='center'>
-      <section>
-        {user ? (
-          <Chat user={user} auth={auth}></Chat>
-        ) : (
-          <SignIn auth={auth}></SignIn>
-        )}
-      </section>
-    </Grid>
+    <React.Fragment>
+      <header>
+        <AppBar position='fixed'>
+          <Toolbar>
+            {user ? (
+              <React.Fragment>
+                <Avatar src={user.photoURL}></Avatar>
+                <span style={{ paddingLeft: "10px", flexGrow: "1" }}>
+                  {user.displayName}
+                </span>
+                <Button
+                  onClick={() => auth.signOut()}
+                  style={{ color: "white" }}
+                >
+                  SIGN OUT
+                </Button>
+              </React.Fragment>
+            ) : (
+              <React.Fragment>
+                <span style={{ flexGrow: "1" }}></span>
+                <Button
+                  onClick={() => {
+                    auth.signInWithPopup(
+                      new firebase.auth.GoogleAuthProvider()
+                    );
+                  }}
+                  style={{ color: "white" }}
+                >
+                  SIGN IN
+                </Button>
+              </React.Fragment>
+            )}
+          </Toolbar>
+        </AppBar>
+      </header>
+      <Grid container direction='column' justify='center' alignItems='center'>
+        <section>
+          {user ? (
+            <Chat user={user} auth={auth}></Chat>
+          ) : (
+            <SignIn auth={auth}></SignIn>
+          )}
+        </section>
+      </Grid>
+    </React.Fragment>
   );
 }
 
