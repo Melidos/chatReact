@@ -13,7 +13,6 @@ import {
   CircularProgress,
   AppBar,
   Toolbar,
-  Typography,
   Button,
   Avatar,
 } from "@material-ui/core";

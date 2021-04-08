@@ -5,17 +5,12 @@ import { useCollectionData } from "react-firebase-hooks/firestore";
 import "firebase/firestore";
 import firebase from "firebase/app";
 
-import {
-  Button,
-  CircularProgress,
-  Grid,
-  Paper,
-  TextField,
-  FormControl,
-} from "@material-ui/core";
+import { v4 as uuidv4 } from "uuid";
+
+import { CircularProgress, Grid, Paper, TextField } from "@material-ui/core";
 
 export default function Chat(props) {
-  const [messages, messagesLoading, error] = useCollectionData(
+  const [messages, messagesLoading] = useCollectionData(
     firebase.firestore().collection("messages").orderBy("createdAt")
   );
 
@@ -113,7 +108,7 @@ export default function Chat(props) {
           if (e.key === "Enter") {
             firebase.firestore().collection("messages").add({
               createdAt: Date.now(),
-              id: 3,
+              id: uuidv4(),
               photoURL: props.user.photoURL,
               text,
               uid: props.user.uid,
