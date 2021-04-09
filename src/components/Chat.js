@@ -33,15 +33,12 @@ export default function Chat(props) {
         container
         direction='column'
         alignItems='center'
-        justify='center'
         style={{ minHeight: "100vh", fontSize: "1.5em", textAlign: "center" }}
       >
         Retrieving Messages
-        <CircularProgress color='white' size='10rem' />
+        <CircularProgress size='10rem' />
       </Grid>
     );
-  } else {
-    console.log(props.user);
   }
   return (
     <Grid
@@ -59,7 +56,13 @@ export default function Chat(props) {
       {messages.map((message) => {
         if (message.uid === props.user.uid) {
           return (
-            <Grid container item direction='column' alignItems='flex-end'>
+            <Grid
+              container
+              item
+              direction='column'
+              alignItems='flex-end'
+              key={message.id}
+            >
               <Grid item style={{ width: "fit-content" }}>
                 <Paper
                   style={{
@@ -71,14 +74,20 @@ export default function Chat(props) {
                   {message.text}
                 </Paper>
               </Grid>
-              <Grid item justify='flex-end' style={{ color: "#9e9e9e" }}>
+              <Grid item style={{ color: "#9e9e9e" }}>
                 Posted by you
               </Grid>
             </Grid>
           );
         }
         return (
-          <Grid container item direction='column' alignItems='flex-start'>
+          <Grid
+            container
+            item
+            direction='column'
+            alignItems='flex-start'
+            key={message.id}
+          >
             <Grid item style={{ width: "fit-content" }}>
               <Paper
                 style={{
@@ -90,7 +99,7 @@ export default function Chat(props) {
                 {message.text}
               </Paper>
             </Grid>
-            <Grid item justify='flex-end' style={{ color: "#9e9e9e" }}>
+            <Grid item style={{ color: "#9e9e9e" }}>
               Posted by {message.userName}
             </Grid>
           </Grid>
@@ -123,10 +132,10 @@ export default function Chat(props) {
           borderRadius: "5px",
           background: "white",
           position: "fixed",
-          bottom: "0",
-          width: "90%",
-          marginBottom: "10px",
-          marginLeft: "10px",
+          bottom: "0px",
+          width: "92%",
+          margin: "auto",
+          marginBottom: "1px",
         }}
       />
     </Grid>

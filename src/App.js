@@ -34,7 +34,6 @@ function App() {
   const [user, userLoading] = useAuthState(auth);
 
   if (userLoading) {
-    console.log("User is loading");
     return (
       <Grid
         container
@@ -44,11 +43,10 @@ function App() {
         style={{ minHeight: "100vh", fontSize: "1.5em", textAlign: "center" }}
       >
         User informations are being loaded
-        <CircularProgress color='white' size='10rem' />
+        <CircularProgress size='10rem' />
       </Grid>
     );
   }
-  console.log("User is loaded");
   return (
     <React.Fragment>
       <header>
