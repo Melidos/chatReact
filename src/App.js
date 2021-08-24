@@ -2,6 +2,8 @@ import "./App.css";
 import SignIn from "./components/SignIn";
 import Chat from "./components/Chat";
 
+import { useEffect } from "react";
+
 import firebase from "firebase/app";
 
 import "firebase/auth";
@@ -31,6 +33,10 @@ firebase.initializeApp({
 const auth = firebase.auth();
 
 function App() {
+  useEffect(() => {
+    document.title = "Realtime Chat";
+  });
+
   const [user, userLoading] = useAuthState(auth);
 
   if (userLoading) {
