@@ -63,7 +63,26 @@ export default function Chat(props) {
               alignItems='flex-end'
               key={message.id}
             >
-              <Grid item style={{ width: "fit-content" }}>
+              <Grid
+                item
+                style={{ width: "fit-content", cursor: "pointer" }}
+                onClick={
+                  async () => {
+                    const docs = await firebase
+                      .firestore()
+                      .collection("messages")
+                      .where("id", "==", message.id)
+                      .get();
+
+                    docs.forEach((doc) => doc.ref.delete());
+                  }
+                  /*firebase
+                    .firestore()
+                    .collection("messages")
+                    .doc("5ZahdvbQnL3T4j7hEaRu")
+                    .delete()*/
+                }
+              >
                 <Paper
                   style={{
                     padding: "5px",
