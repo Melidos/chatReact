@@ -1,10 +1,15 @@
-# Chat
+# Projet Personnel - Chat en direct
 
-Le but de ce projet est de créer un chat en direct permettant la distribution instantanée des messages, lié à une authentification.
+## But du projet:
+
+- Utiliser Firebase
+- Utiliser les services de connexion Google
+- Distribuer des messages en direct
 
 [Acceder à la version live](https://gentle-meadow-15063.herokuapp.com)
 
 ## Stack technique
 
+- NodeJS
 - Firebase pour la partie Back-End
 - ReactJS et Material-UI pour le Front-End
