@@ -34,7 +34,7 @@ const auth = firebase.auth();
 
 function App() {
   useEffect(() => {
-    document.title = "Realtime Chat";
+    document.title = "Chat en temps réel";
   });
 
   const [user, userLoading] = useAuthState(auth);
@@ -48,7 +48,7 @@ function App() {
         justify='center'
         style={{ minHeight: "100vh", fontSize: "1.5em", textAlign: "center" }}
       >
-        User informations are being loaded
+        Récuperation des informations de l'utilisateur
         <CircularProgress size='10rem' />
       </Grid>
     );
@@ -68,7 +68,7 @@ function App() {
                   onClick={() => auth.signOut()}
                   style={{ color: "white" }}
                 >
-                  SIGN OUT
+                  Deconnexion
                 </Button>
               </React.Fragment>
             ) : (
@@ -82,7 +82,7 @@ function App() {
                   }}
                   style={{ color: "white" }}
                 >
-                  SIGN IN
+                  Connexion
                 </Button>
               </React.Fragment>
             )}

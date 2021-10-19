@@ -35,7 +35,7 @@ export default function Chat(props) {
         alignItems='center'
         style={{ minHeight: "100vh", fontSize: "1.5em", textAlign: "center" }}
       >
-        Retrieving Messages
+        Récupération des messages
         <CircularProgress size='10rem' />
       </Grid>
     );
@@ -94,7 +94,7 @@ export default function Chat(props) {
                 </Paper>
               </Grid>
               <Grid item style={{ color: "#9e9e9e" }}>
-                Posted by you
+                Posté par vous
               </Grid>
             </Grid>
           );
@@ -119,7 +119,7 @@ export default function Chat(props) {
               </Paper>
             </Grid>
             <Grid item style={{ color: "#9e9e9e" }}>
-              Posted by {message.userName}
+              Posté par {message.userName}
             </Grid>
           </Grid>
         );
@@ -127,7 +127,7 @@ export default function Chat(props) {
       <TextField
         fullWidth
         id='messageTextArea'
-        label='Your message'
+        label='Votre message'
         multiline
         rowsMax={4}
         value={text}
