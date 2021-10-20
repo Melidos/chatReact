@@ -14,7 +14,7 @@ export default class SignIn extends Component {
         style={{ minHeight: "100vh", fontSize: "1.5em" }}
       >
         <div style={{ color: "white", textAlign: "center" }}>
-          Merci de vous connecter pour utiliser le chat TESTTESTTESTTEST
+          Merci de vous connecter pour utiliser le chat TEST
         </div>
         <Button
           variant='contained'
