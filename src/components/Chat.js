@@ -1,5 +1,4 @@
-import React from "react";
-import { useState, useEffect, useRef } from "react";
+import React, { useState, useEffect, useRef } from "react";
 
 import { useCollectionData } from "react-firebase-hooks/firestore";
 import "firebase/firestore";
@@ -66,22 +65,15 @@ export default function Chat(props) {
               <Grid
                 item
                 style={{ width: "fit-content", cursor: "pointer" }}
-                onClick={
-                  async () => {
-                    const docs = await firebase
-                      .firestore()
-                      .collection("messages")
-                      .where("id", "==", message.id)
-                      .get();
-
-                    docs.forEach((doc) => doc.ref.delete());
-                  }
-                  /*firebase
+                onClick={async () => {
+                  const docs = await firebase
                     .firestore()
                     .collection("messages")
-                    .doc("5ZahdvbQnL3T4j7hEaRu")
-                    .delete()*/
-                }
+                    .where("id", "==", message.id)
+                    .get();
+
+                  docs.forEach((doc) => doc.ref.delete());
+                }}
               >
                 <Paper
                   style={{
