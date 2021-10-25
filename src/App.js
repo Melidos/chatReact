@@ -2,7 +2,7 @@ import "./App.css";
 import SignIn from "./components/SignIn";
 import Chat from "./components/Chat";
 
-import { useEffect } from "react";
+import React, { useEffect } from "react";
 
 import firebase from "firebase/app";
 
@@ -18,7 +18,6 @@ import {
   Button,
   Avatar,
 } from "@material-ui/core";
-import React from "react";
 
 firebase.initializeApp({
   apiKey: process.env.REACT_APP_API_KEY,
